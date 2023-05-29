@@ -104,7 +104,7 @@
 		675768D92A1CEF2000BB5693 = {
 			isa = PBXGroup;
 			children = (
-				675768E42A1CEF2000BB5693 /* Paging */,
+				675768E42A1CEF2000BB5693 /* Pagination */,
 				675768E32A1CEF2000BB5693 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,7 +117,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		675768E42A1CEF2000BB5693 /* Paging */ = {
+		675768E42A1CEF2000BB5693 /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
 				67164C9A2A1D048400CF3AD9 /* entities */,
@@ -127,7 +127,7 @@
 				675768E92A1CEF2100BB5693 /* Assets.xcassets */,
 				675768EB2A1CEF2100BB5693 /* Preview Content */,
 			);
-			path = Paging;
+			path = Pagination;
 			sourceTree = "<group>";
 		};
 		675768EB2A1CEF2100BB5693 /* Preview Content */ = {
