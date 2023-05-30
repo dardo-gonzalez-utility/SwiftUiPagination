@@ -44,7 +44,7 @@
 		67198C802A1D5402005CE189 /* AsyncAwaitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitViewModel.swift; sourceTree = "<group>"; };
 		67198C822A1D5675005CE189 /* LoadingItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingItemView.swift; sourceTree = "<group>"; };
 		67198C842A1D59CE005CE189 /* RetryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryItemView.swift; sourceTree = "<group>"; };
-		675768E22A1CEF2000BB5693 /* Paging.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Paging.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		675768E22A1CEF2000BB5693 /* Pagination.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pagination.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		675768E52A1CEF2000BB5693 /* PagingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingApp.swift; sourceTree = "<group>"; };
 		675768E72A1CEF2000BB5693 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		675768E92A1CEF2100BB5693 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		675768E32A1CEF2000BB5693 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				675768E22A1CEF2000BB5693 /* Paging.app */,
+				675768E22A1CEF2000BB5693 /* Pagination.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		675768E12A1CEF2000BB5693 /* Paging */ = {
+		675768E12A1CEF2000BB5693 /* Pagination */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 675768F02A1CEF2100BB5693 /* Build configuration list for PBXNativeTarget "Paging" */;
+			buildConfigurationList = 675768F02A1CEF2100BB5693 /* Build configuration list for PBXNativeTarget "Pagination" */;
 			buildPhases = (
 				675768DE2A1CEF2000BB5693 /* Sources */,
 				675768DF2A1CEF2000BB5693 /* Frameworks */,
@@ -194,9 +194,9 @@
 			);
 			dependencies = (
 			);
-			name = Paging;
+			name = Pagination;
 			productName = Paging;
-			productReference = 675768E22A1CEF2000BB5693 /* Paging.app */;
+			productReference = 675768E22A1CEF2000BB5693 /* Pagination.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -214,7 +214,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 675768DD2A1CEF2000BB5693 /* Build configuration list for PBXProject "Paging" */;
+			buildConfigurationList = 675768DD2A1CEF2000BB5693 /* Build configuration list for PBXProject "Pagination" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -227,7 +227,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				675768E12A1CEF2000BB5693 /* Paging */,
+				675768E12A1CEF2000BB5693 /* Pagination */,
 			);
 		};
 /* End PBXProject section */
@@ -450,7 +450,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		675768DD2A1CEF2000BB5693 /* Build configuration list for PBXProject "Paging" */ = {
+		675768DD2A1CEF2000BB5693 /* Build configuration list for PBXProject "Pagination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				675768EE2A1CEF2100BB5693 /* Debug */,
@@ -459,7 +459,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		675768F02A1CEF2100BB5693 /* Build configuration list for PBXNativeTarget "Paging" */ = {
+		675768F02A1CEF2100BB5693 /* Build configuration list for PBXNativeTarget "Pagination" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				675768F12A1CEF2100BB5693 /* Debug */,
