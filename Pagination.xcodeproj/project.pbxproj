@@ -28,7 +28,8 @@
 		675768F82A1CF46F00BB5693 /* AsyncAwaitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675768F72A1CF46F00BB5693 /* AsyncAwaitView.swift */; };
 		67BE5A142A1E3C630095EDB9 /* CombineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BE5A132A1E3C630095EDB9 /* CombineViewModel.swift */; };
 		67F19FAE2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */; };
-		67F19FB22A27A4320089EA75 /* PagedMessages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB12A27A4320089EA75 /* PagedMessages.swift */; };
+		67F19FB42A27C2790089EA75 /* DataSourcePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB32A27C2790089EA75 /* DataSourcePage.swift */; };
+		67F19FB62A27C35D0089EA75 /* DataSourceAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,7 +55,8 @@
 		675768F72A1CF46F00BB5693 /* AsyncAwaitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncAwaitView.swift; sourceTree = "<group>"; };
 		67BE5A132A1E3C630095EDB9 /* CombineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineViewModel.swift; sourceTree = "<group>"; };
 		67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDataSourceAsyncAwait.swift; sourceTree = "<group>"; };
-		67F19FB12A27A4320089EA75 /* PagedMessages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagedMessages.swift; sourceTree = "<group>"; };
+		67F19FB32A27C2790089EA75 /* DataSourcePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePage.swift; sourceTree = "<group>"; };
+		67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAsyncAwait.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				67164C9B2A1D048F00CF3AD9 /* Message.swift */,
-				67F19FB12A27A4320089EA75 /* PagedMessages.swift */,
+				67F19FB32A27C2790089EA75 /* DataSourcePage.swift */,
 			);
 			path = entities;
 			sourceTree = "<group>";
@@ -125,10 +127,10 @@
 		675768E42A1CEF2000BB5693 /* Pagination */ = {
 			isa = PBXGroup;
 			children = (
-				67F19FAC2A279A680089EA75 /* datasources */,
 				67164C9A2A1D048400CF3AD9 /* entities */,
 				675768F52A1CF3CF00BB5693 /* apolloGraphQLMock */,
 				675768F42A1CF3C500BB5693 /* services */,
+				67F19FAC2A279A680089EA75 /* asyncAwaitPagination */,
 				675768F32A1CEF2A00BB5693 /* ui */,
 				675768E92A1CEF2100BB5693 /* Assets.xcassets */,
 				675768EB2A1CEF2100BB5693 /* Preview Content */,
@@ -185,12 +187,13 @@
 			path = asyncAwait;
 			sourceTree = "<group>";
 		};
-		67F19FAC2A279A680089EA75 /* datasources */ = {
+		67F19FAC2A279A680089EA75 /* asyncAwaitPagination */ = {
 			isa = PBXGroup;
 			children = (
 				67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */,
+				67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */,
 			);
-			path = datasources;
+			path = asyncAwaitPagination;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +266,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67F19FB22A27A4320089EA75 /* PagedMessages.swift in Sources */,
+				67F19FB62A27C35D0089EA75 /* DataSourceAsyncAwait.swift in Sources */,
 				67164C8D2A1CF75800CF3AD9 /* CombineView.swift in Sources */,
 				675768E82A1CEF2000BB5693 /* MainView.swift in Sources */,
 				675768E62A1CEF2000BB5693 /* PagingApp.swift in Sources */,
@@ -274,6 +277,7 @@
 				67164C9E2A1D059300CF3AD9 /* MessageItemView.swift in Sources */,
 				67164C912A1CFB8400CF3AD9 /* ApolloClient.swift in Sources */,
 				67164C972A1CFCFB00CF3AD9 /* GraphQLError.swift in Sources */,
+				67F19FB42A27C2790089EA75 /* DataSourcePage.swift in Sources */,
 				67164C9C2A1D048F00CF3AD9 /* Message.swift in Sources */,
 				67164CA82A1D4A0F00CF3AD9 /* PagingStatus.swift in Sources */,
 				675768F82A1CF46F00BB5693 /* AsyncAwaitView.swift in Sources */,

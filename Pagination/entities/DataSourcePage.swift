@@ -1,10 +1,10 @@
 import Foundation
 
-class PagedMessages {
+class DataSourcePage<T> {
     let totalCount: Int
-    let page: [Message]
+    let page: [T]
     
-    init(totalCount: Int, page: [Message]) {
+    init(totalCount: Int, page: [T]) {
         self.totalCount = totalCount
         self.page = page
     }

@@ -7,21 +7,19 @@ class AsyncAwaitViewModel: ObservableObject {
     @Published var showLoadingCell = false
     @Published var showRetryCell = false
 
-    private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
     private let inboxDataSource = InboxDataSourceAsyncAwait(pageSize: 10)
     
     init() {
         pagingStatus = .loadingFirstPage
-        getMessages()
+        retrieveNextPage()
     }
     
-    func onCellAppeared(_ item: Message){
+    func onCellAppeared(_ item: Message) {
         guard let lastMessage = messages.last, lastMessage.id == item.id, messageIdUsedForLastQuery != item.id else { return }
         messageIdUsedForLastQuery = item.id
-        page += 1
-        print("Requesting page \(page)")
-        getMessages()
+        print("Requesting next page")
+        retrieveNextPage()
     }
 
     func reloadPage() {
@@ -35,17 +33,17 @@ class AsyncAwaitViewModel: ObservableObject {
     private func reloadFirstPage() {
         apolloClient.errorInFirstPage = false
         pagingStatus = .loadingFirstPage
-        getMessages()
+        retrieveNextPage()
     }
     
     private func reloadNextPage() {
         apolloClient.errorInSecondPage = false
         self.showRetryCell = false
         self.showLoadingCell = true
-        getMessages()
+        retrieveNextPage()
     }
     
-    private func getMessages() {
+    private func retrieveNextPage() {
         Task {
             do {
                 let pagedMessages = try await inboxDataSource.retrieveNextPage()
