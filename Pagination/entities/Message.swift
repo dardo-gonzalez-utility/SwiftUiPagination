@@ -4,7 +4,7 @@ import Foundation
  Message DTO used in the app
  */
 
-struct Message: Hashable {
+struct Message: Hashable, Identifiable {
     let id: Int
     let message: String
     
