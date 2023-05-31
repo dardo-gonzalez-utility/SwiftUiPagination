@@ -9,7 +9,7 @@ enum MessagesError: Error {
  Manager that handles queries to obtain the messages from BE
  */
 
-class MessagesManager {
+class InboxService {
     
     // Method for getting messages using async/await
     func getMessagesWithAsyncAwait(page: Int) async throws -> [Message] {

@@ -9,7 +9,7 @@ class AsyncAwaitViewModel: ObservableObject {
 
     private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
-    private let messagesManager = MessagesManager()
+    private let messagesManager = InboxService()
     
     init() {
         pagingStatus = .loadingFirstPage

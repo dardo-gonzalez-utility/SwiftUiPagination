@@ -14,7 +14,7 @@
 		67164C972A1CFCFB00CF3AD9 /* GraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C962A1CFCFB00CF3AD9 /* GraphQLError.swift */; };
 		67164C9C2A1D048F00CF3AD9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C9B2A1D048F00CF3AD9 /* Message.swift */; };
 		67164C9E2A1D059300CF3AD9 /* MessageItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C9D2A1D059300CF3AD9 /* MessageItemView.swift */; };
-		67164CA02A1D08CF00CF3AD9 /* MessagesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C9F2A1D08CF00CF3AD9 /* MessagesManager.swift */; };
+		67164CA02A1D08CF00CF3AD9 /* InboxService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C9F2A1D08CF00CF3AD9 /* InboxService.swift */; };
 		67164CA22A1D126600CF3AD9 /* GraphQLMessagesQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164CA12A1D126600CF3AD9 /* GraphQLMessagesQuery.swift */; };
 		67164CA42A1D3E1000CF3AD9 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164CA32A1D3E1000CF3AD9 /* MainViewModel.swift */; };
 		67164CA82A1D4A0F00CF3AD9 /* PagingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164CA72A1D4A0F00CF3AD9 /* PagingStatus.swift */; };
@@ -37,7 +37,7 @@
 		67164C962A1CFCFB00CF3AD9 /* GraphQLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLError.swift; sourceTree = "<group>"; };
 		67164C9B2A1D048F00CF3AD9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		67164C9D2A1D059300CF3AD9 /* MessageItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageItemView.swift; sourceTree = "<group>"; };
-		67164C9F2A1D08CF00CF3AD9 /* MessagesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesManager.swift; sourceTree = "<group>"; };
+		67164C9F2A1D08CF00CF3AD9 /* InboxService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxService.swift; sourceTree = "<group>"; };
 		67164CA12A1D126600CF3AD9 /* GraphQLMessagesQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLMessagesQuery.swift; sourceTree = "<group>"; };
 		67164CA32A1D3E1000CF3AD9 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		67164CA72A1D4A0F00CF3AD9 /* PagingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingStatus.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 			children = (
 				67164C9A2A1D048400CF3AD9 /* entities */,
 				675768F52A1CF3CF00BB5693 /* apolloGraphQLMock */,
-				675768F42A1CF3C500BB5693 /* managers */,
+				675768F42A1CF3C500BB5693 /* services */,
 				675768F32A1CEF2A00BB5693 /* ui */,
 				675768E92A1CEF2100BB5693 /* Assets.xcassets */,
 				675768EB2A1CEF2100BB5693 /* Preview Content */,
@@ -150,12 +150,12 @@
 			path = ui;
 			sourceTree = "<group>";
 		};
-		675768F42A1CF3C500BB5693 /* managers */ = {
+		675768F42A1CF3C500BB5693 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				67164C9F2A1D08CF00CF3AD9 /* MessagesManager.swift */,
+				67164C9F2A1D08CF00CF3AD9 /* InboxService.swift */,
 			);
-			path = managers;
+			path = services;
 			sourceTree = "<group>";
 		};
 		675768F52A1CF3CF00BB5693 /* apolloGraphQLMock */ = {
@@ -263,7 +263,7 @@
 				67164CA82A1D4A0F00CF3AD9 /* PagingStatus.swift in Sources */,
 				675768F82A1CF46F00BB5693 /* AsyncAwaitView.swift in Sources */,
 				67164CA22A1D126600CF3AD9 /* GraphQLMessagesQuery.swift in Sources */,
-				67164CA02A1D08CF00CF3AD9 /* MessagesManager.swift in Sources */,
+				67164CA02A1D08CF00CF3AD9 /* InboxService.swift in Sources */,
 				67198C852A1D59CE005CE189 /* RetryItemView.swift in Sources */,
 				67BE5A142A1E3C630095EDB9 /* CombineViewModel.swift in Sources */,
 				67164CA42A1D3E1000CF3AD9 /* MainViewModel.swift in Sources */,
