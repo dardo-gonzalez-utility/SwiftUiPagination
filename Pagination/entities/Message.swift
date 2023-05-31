@@ -15,7 +15,7 @@ struct Message: Hashable {
     
     // Convert GraphQL message to app DTO message
     init(graphQLMessageEntity: GraphQLMessageEntity) {
-        self.id = graphQLMessageEntity.id
+        self.id = graphQLMessageEntity.messageId
         self.message = graphQLMessageEntity.message
     }
 }

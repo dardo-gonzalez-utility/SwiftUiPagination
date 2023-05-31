@@ -12,6 +12,7 @@ class ApolloClient {
     public static let shared = ApolloClient()
     
     private let maxPages = 3
+    private let totalCount = 33
     var errorInFirstPage = false
     var errorInSecondPage = false
     var emptyMessages = false
@@ -30,36 +31,37 @@ class ApolloClient {
             - 3 messages for page 3
             - 0 messages for page > 3
      */
-    func fetch(query: GraphQLMessagesQuery, _ resultHandler: GraphQLResultHandler<[GraphQLMessageEntity]>? = nil) {
-        print("Sending request to BE for page: \(query.page)")
+    func fetch(query: GraphQLMessagesQuery, _ resultHandler: GraphQLResultHandler<GraphQLMessageSummary>? = nil) {
+        print("Sending request to BE for after: \(query.after)")
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            print("Receiving response from BE for page: \(query.page)")
+            print("Receiving response from BE for after: \(query.after)")
 
             if self.errorInFirstPage {
                 resultHandler?(.failure(GraphQLError("Backend or network error")))
                 return
             }
             
-            if query.page == 2 && self.errorInSecondPage {
+            if query.after == 0 && self.errorInSecondPage {
                 resultHandler?(.failure(GraphQLError("Backend or network error")))
                 return
             }
             
-            if query.page > self.maxPages {
-                resultHandler?(.success(GraphQLResult<[GraphQLMessageEntity]>(data: [], errors: nil)))
+            if query.after > self.maxPages - 2 {
+                let summmary = GraphQLMessageSummary(totalCount: self.totalCount, messages: [])
+                resultHandler?(.success(GraphQLResult<GraphQLMessageSummary>(data: summmary, errors: nil)))
                 return
             }
 
             var messages: [GraphQLMessageEntity] = []
             if !self.emptyMessages {
-                let results = query.page == self.maxPages ? 3 : 10
+                let results = query.after == self.maxPages - 2 ? 3 : 10
                 for i in 1...results {
-                    messages.append(GraphQLMessageEntity(id: query.page * 1000 + i, message: "Message \(i) in page \(query.page)"))
+                    messages.append(GraphQLMessageEntity(id: (query.after + 2) * 1000 + i, message: "Message \(i) in after \(query.after)"))
                 }
             }
-            resultHandler?(.success(GraphQLResult<[GraphQLMessageEntity]>(data: messages, errors: nil)))
-                
+            let summmary = GraphQLMessageSummary(totalCount: self.totalCount, messages: messages)
+            resultHandler?(.success(GraphQLResult<GraphQLMessageSummary>(data: summmary, errors: nil)))
         }
     }
 }

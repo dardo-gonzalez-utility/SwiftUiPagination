@@ -5,9 +5,11 @@ import Foundation
  */
 
 class GraphQLMessagesQuery {
-    let page: Int
-    
-    init(page: Int) {
-        self.page = page
+    let after: Int
+    let first: Int
+
+    init(after: Int, first: Int) {
+        self.after = after
+        self.first = first
     }
 }

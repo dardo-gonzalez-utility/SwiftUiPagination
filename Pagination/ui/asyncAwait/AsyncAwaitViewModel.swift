@@ -7,7 +7,7 @@ class AsyncAwaitViewModel: ObservableObject {
     @Published var showLoadingCell = false
     @Published var showRetryCell = false
 
-    private var page: Int = 1
+    private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
     private let messagesManager = MessagesManager()
     
