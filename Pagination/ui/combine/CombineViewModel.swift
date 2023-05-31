@@ -10,7 +10,7 @@ class CombineViewModel: ObservableObject {
 
     private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
-    private let messagesManager = InboxService()
+    private let messagesManager = InboxServiceCombine()
     private var subscription: AnyCancellable?
 
     init() {

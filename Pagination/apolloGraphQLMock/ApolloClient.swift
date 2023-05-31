@@ -12,7 +12,6 @@ class ApolloClient {
     public static let shared = ApolloClient()
     
     private let maxPages = 3
-    private let totalCount = 33
     var errorInFirstPage = false
     var errorInSecondPage = false
     var emptyMessages = false
@@ -36,6 +35,7 @@ class ApolloClient {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             print("Receiving response from BE for after: \(query.after)")
+            let totalCount = self.maxPages * query.first + 3
 
             if self.errorInFirstPage {
                 resultHandler?(.failure(GraphQLError("Backend or network error")))
@@ -48,19 +48,19 @@ class ApolloClient {
             }
             
             if query.after > self.maxPages - 2 {
-                let summmary = GraphQLMessageSummary(totalCount: self.totalCount, messages: [])
+                let summmary = GraphQLMessageSummary(totalCount: totalCount, messages: [])
                 resultHandler?(.success(GraphQLResult<GraphQLMessageSummary>(data: summmary, errors: nil)))
                 return
             }
 
             var messages: [GraphQLMessageEntity] = []
             if !self.emptyMessages {
-                let results = query.after == self.maxPages - 2 ? 3 : 10
+                let results = query.after == self.maxPages - 2 ? 3 : query.first
                 for i in 1...results {
                     messages.append(GraphQLMessageEntity(id: (query.after + 2) * 1000 + i, message: "Message \(i) in after \(query.after)"))
                 }
             }
-            let summmary = GraphQLMessageSummary(totalCount: self.totalCount, messages: messages)
+            let summmary = GraphQLMessageSummary(totalCount: totalCount, messages: messages)
             resultHandler?(.success(GraphQLResult<GraphQLMessageSummary>(data: summmary, errors: nil)))
         }
     }

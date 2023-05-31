@@ -9,7 +9,7 @@ class AsyncAwaitViewModel: ObservableObject {
 
     private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
-    private let messagesManager = InboxService()
+    private let inboxDataSource = InboxDataSourceAsyncAwait(pageSize: 10)
     
     init() {
         pagingStatus = .loadingFirstPage
@@ -48,7 +48,7 @@ class AsyncAwaitViewModel: ObservableObject {
     private func getMessages() {
         Task {
             do {
-                let pagedMessages = try await messagesManager.getMessagesWithAsyncAwait(page: page)
+                let pagedMessages = try await inboxDataSource.retrieveNextPage()
                 processMessages(pagedMessages)
             } catch {
                 processError(error)

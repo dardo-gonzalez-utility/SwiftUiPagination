@@ -6,30 +6,33 @@ enum MessagesError: Error {
 }
 
 /**
- Manager that handles queries to obtain the messages from BE
+ InboxService that handles queries to obtain the messages from BE
  */
 
-class InboxService {
-    
-    // Method for getting messages using async/await
-    func getMessagesWithAsyncAwait(page: Int) async throws -> [Message] {
+// InboxService implementation for using async/await
+class InboxServiceAsyncAwait {
+    func getMessagesWithAsyncAwait(after: Int, first: Int) async throws -> PagedMessages {
         return try await withCheckedThrowingContinuation { continuation in
-            let query = GraphQLMessagesQuery(after: page, first: 10)
+            let query = GraphQLMessagesQuery(after: after, first: first)
             apolloClient.fetch(query: query) { result in
                 switch result {
                 case .success(let response):
-                    guard let messagesGraphQL = response.data else {
+                    guard let response = response.data else {
                         return continuation.resume(throwing: MessagesError.unknown)
                     }
-                    continuation.resume(returning: messagesGraphQL.messages.map { Message(graphQLMessageEntity: $0) } )
+                    let pagedMessages = PagedMessages(totalCount: response.totalCount, page: response.messages.map { Message(graphQLMessageEntity: $0) })
+                    continuation.resume(returning: pagedMessages)
                 case .failure(let error):
                     return continuation.resume(throwing: error)
                 }
             }
         }
     }
-    
-    // Method for getting messages using combine
+}
+
+
+// InboxService implementation for using combine
+class InboxServiceCombine {
     func getMessagesWithCombine(page: Int) -> AnyPublisher<[Message], Error> {
         let subject = PassthroughSubject<[Message], Error>()
         
