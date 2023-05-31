@@ -7,7 +7,7 @@ open class DataSourceAsyncAwait<T: Identifiable> {
     private var totalCount = -1
     private var retrievedIds: [T.ID] = []
     
-    func fetchRequest(after: Int, first: Int) async throws -> DataSourcePage<T> {
+    internal func fetchRequest(after: Int, first: Int) async throws -> DataSourcePage<T> {
         fatalError("Fetch method not implemented")
     }
 
