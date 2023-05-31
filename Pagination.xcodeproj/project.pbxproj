@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		67164C8D2A1CF75800CF3AD9 /* CombineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C8C2A1CF75800CF3AD9 /* CombineView.swift */; };
 		67164C912A1CFB8400CF3AD9 /* ApolloClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C902A1CFB8400CF3AD9 /* ApolloClient.swift */; };
-		67164C932A1CFC0A00CF3AD9 /* GraphQLMessageEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C922A1CFC0A00CF3AD9 /* GraphQLMessageEntity.swift */; };
+		67164C932A1CFC0A00CF3AD9 /* GraphQLMessageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C922A1CFC0A00CF3AD9 /* GraphQLMessageResponse.swift */; };
 		67164C952A1CFCA900CF3AD9 /* GraphQLResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C942A1CFCA900CF3AD9 /* GraphQLResult.swift */; };
 		67164C972A1CFCFB00CF3AD9 /* GraphQLError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C962A1CFCFB00CF3AD9 /* GraphQLError.swift */; };
 		67164C9C2A1D048F00CF3AD9 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67164C9B2A1D048F00CF3AD9 /* Message.swift */; };
@@ -35,7 +35,7 @@
 /* Begin PBXFileReference section */
 		67164C8C2A1CF75800CF3AD9 /* CombineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombineView.swift; sourceTree = "<group>"; };
 		67164C902A1CFB8400CF3AD9 /* ApolloClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApolloClient.swift; sourceTree = "<group>"; };
-		67164C922A1CFC0A00CF3AD9 /* GraphQLMessageEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLMessageEntity.swift; sourceTree = "<group>"; };
+		67164C922A1CFC0A00CF3AD9 /* GraphQLMessageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLMessageResponse.swift; sourceTree = "<group>"; };
 		67164C942A1CFCA900CF3AD9 /* GraphQLResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLResult.swift; sourceTree = "<group>"; };
 		67164C962A1CFCFB00CF3AD9 /* GraphQLError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLError.swift; sourceTree = "<group>"; };
 		67164C9B2A1D048F00CF3AD9 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				67164C902A1CFB8400CF3AD9 /* ApolloClient.swift */,
-				67164C922A1CFC0A00CF3AD9 /* GraphQLMessageEntity.swift */,
+				67164C922A1CFC0A00CF3AD9 /* GraphQLMessageResponse.swift */,
 				67164C942A1CFCA900CF3AD9 /* GraphQLResult.swift */,
 				67164C962A1CFCFB00CF3AD9 /* GraphQLError.swift */,
 				67164CA12A1D126600CF3AD9 /* GraphQLMessagesQuery.swift */,
@@ -272,7 +272,7 @@
 				675768E62A1CEF2000BB5693 /* PagingApp.swift in Sources */,
 				67198C812A1D5402005CE189 /* AsyncAwaitViewModel.swift in Sources */,
 				67198C832A1D5675005CE189 /* LoadingItemView.swift in Sources */,
-				67164C932A1CFC0A00CF3AD9 /* GraphQLMessageEntity.swift in Sources */,
+				67164C932A1CFC0A00CF3AD9 /* GraphQLMessageResponse.swift in Sources */,
 				67164C952A1CFCA900CF3AD9 /* GraphQLResult.swift in Sources */,
 				67164C9E2A1D059300CF3AD9 /* MessageItemView.swift in Sources */,
 				67164C912A1CFB8400CF3AD9 /* ApolloClient.swift in Sources */,
