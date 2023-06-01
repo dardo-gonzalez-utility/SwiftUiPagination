@@ -8,22 +8,20 @@ class CombineViewModel: ObservableObject {
     @Published var showLoadingCell = false
     @Published var showRetryCell = false
 
-    private var page: Int = -1
     private var messageIdUsedForLastQuery: Int = -1
-    private let messagesManager = InboxServiceCombine()
+    private let inboxDataSource = InboxDataSourceCombine(pageSize: 10)
     private var subscription: AnyCancellable?
 
     init() {
         pagingStatus = .loadingFirstPage
-        getMessages()
+        retrieveNextPage()
     }
     
     func onCellAppeared(_ item: Message){
         guard let lastMessage = messages.last, lastMessage.id == item.id, messageIdUsedForLastQuery != item.id else { return }
         messageIdUsedForLastQuery = item.id
-        page += 1
-        print("Requesting page \(page)")
-        getMessages()
+        print("Requesting next page")
+        retrieveNextPage()
     }
 
     func reloadPage() {
@@ -37,18 +35,18 @@ class CombineViewModel: ObservableObject {
     private func reloadFirstPage() {
         apolloClient.errorInFirstPage = false
         pagingStatus = .loadingFirstPage
-        getMessages()
+        retrieveNextPage()
     }
     
     private func reloadNextPage() {
         apolloClient.errorInSecondPage = false
         self.showRetryCell = false
         self.showLoadingCell = true
-        getMessages()
+        retrieveNextPage()
     }
     
-    private func getMessages() {
-        subscription = messagesManager.getMessagesWithCombine(page: page)
+    private func retrieveNextPage() {
+        subscription = inboxDataSource.retrieveNextPage()
             .sink(
                 receiveCompletion: { [weak self] result in
                     if case .failure(let error) = result {

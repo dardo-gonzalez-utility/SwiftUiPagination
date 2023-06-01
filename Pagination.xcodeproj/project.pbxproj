@@ -30,6 +30,8 @@
 		67F19FAE2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */; };
 		67F19FB42A27C2790089EA75 /* DataSourcePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB32A27C2790089EA75 /* DataSourcePage.swift */; };
 		67F19FB62A27C35D0089EA75 /* DataSourceAsyncAwait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */; };
+		67F19FB92A28FA3F0089EA75 /* DataSourceCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FB82A28FA3F0089EA75 /* DataSourceCombine.swift */; };
+		67F19FBB2A28FA690089EA75 /* InboxDataSourceCombine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F19FBA2A28FA690089EA75 /* InboxDataSourceCombine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +59,8 @@
 		67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDataSourceAsyncAwait.swift; sourceTree = "<group>"; };
 		67F19FB32A27C2790089EA75 /* DataSourcePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourcePage.swift; sourceTree = "<group>"; };
 		67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceAsyncAwait.swift; sourceTree = "<group>"; };
+		67F19FB82A28FA3F0089EA75 /* DataSourceCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSourceCombine.swift; sourceTree = "<group>"; };
+		67F19FBA2A28FA690089EA75 /* InboxDataSourceCombine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxDataSourceCombine.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +135,7 @@
 				675768F52A1CF3CF00BB5693 /* apolloGraphQLMock */,
 				675768F42A1CF3C500BB5693 /* services */,
 				67F19FAC2A279A680089EA75 /* asyncAwaitPagination */,
+				67F19FB72A28FA060089EA75 /* combinePagination */,
 				675768F32A1CEF2A00BB5693 /* ui */,
 				675768E92A1CEF2100BB5693 /* Assets.xcassets */,
 				675768EB2A1CEF2100BB5693 /* Preview Content */,
@@ -190,10 +195,19 @@
 		67F19FAC2A279A680089EA75 /* asyncAwaitPagination */ = {
 			isa = PBXGroup;
 			children = (
-				67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */,
 				67F19FB52A27C35D0089EA75 /* DataSourceAsyncAwait.swift */,
+				67F19FAD2A279A820089EA75 /* InboxDataSourceAsyncAwait.swift */,
 			);
 			path = asyncAwaitPagination;
+			sourceTree = "<group>";
+		};
+		67F19FB72A28FA060089EA75 /* combinePagination */ = {
+			isa = PBXGroup;
+			children = (
+				67F19FB82A28FA3F0089EA75 /* DataSourceCombine.swift */,
+				67F19FBA2A28FA690089EA75 /* InboxDataSourceCombine.swift */,
+			);
+			path = combinePagination;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +282,8 @@
 			files = (
 				67F19FB62A27C35D0089EA75 /* DataSourceAsyncAwait.swift in Sources */,
 				67164C8D2A1CF75800CF3AD9 /* CombineView.swift in Sources */,
+				67F19FB92A28FA3F0089EA75 /* DataSourceCombine.swift in Sources */,
+				67F19FBB2A28FA690089EA75 /* InboxDataSourceCombine.swift in Sources */,
 				675768E82A1CEF2000BB5693 /* MainView.swift in Sources */,
 				675768E62A1CEF2000BB5693 /* PagingApp.swift in Sources */,
 				67198C812A1D5402005CE189 /* AsyncAwaitViewModel.swift in Sources */,

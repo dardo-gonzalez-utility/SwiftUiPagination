@@ -13,14 +13,16 @@ enum MessagesError: Error {
 class InboxServiceAsyncAwait {
     func getMessagesWithAsyncAwait(after: Int, first: Int) async throws -> DataSourcePage<Message> {
         return try await withCheckedThrowingContinuation { continuation in
+            
             let query = GraphQLMessagesQuery(after: after, first: first)
+            
             apolloClient.fetch(query: query) { result in
                 switch result {
                 case .success(let response):
-                    guard let response = response.data else {
+                    guard let data = response.data else {
                         return continuation.resume(throwing: MessagesError.unknown)
                     }
-                    let pagedMessages = DataSourcePage(totalCount: response.totalCount, page: response.messages.map { Message(graphQLMessageEntity: $0) })
+                    let pagedMessages = DataSourcePage(totalCount: data.totalCount, page: data.messages.map { Message(graphQLMessageEntity: $0) })
                     continuation.resume(returning: pagedMessages)
                 case .failure(let error):
                     return continuation.resume(throwing: error)
@@ -33,15 +35,17 @@ class InboxServiceAsyncAwait {
 
 // InboxService implementation for using combine
 class InboxServiceCombine {
-    func getMessagesWithCombine(page: Int) -> AnyPublisher<[Message], Error> {
-        let subject = PassthroughSubject<[Message], Error>()
+    func getMessagesWithCombine(after: Int, first: Int) -> AnyPublisher<DataSourcePage<Message>, Error> {
+        let subject = PassthroughSubject<DataSourcePage<Message>, Error>()
         
-        let query = GraphQLMessagesQuery(after: page, first: 10)
+        let query = GraphQLMessagesQuery(after: after, first: first)
+
         apolloClient.fetch(query: query) { result in
             switch result {
             case .success(let response):
-                if let messagesGraphQL = response.data  {
-                    subject.send(messagesGraphQL.messages.map { Message(graphQLMessageEntity: $0) })
+                if let data = response.data  {
+                    let pagedMessages = DataSourcePage(totalCount: data.totalCount, page: data.messages.map { Message(graphQLMessageEntity: $0) })
+                    subject.send(pagedMessages)
                 } else {
                     subject.send(completion: .failure(MessagesError.unknown))
                 }
