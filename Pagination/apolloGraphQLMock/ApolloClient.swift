@@ -25,8 +25,8 @@ class ApolloClient {
      When returning the messages, this rules apply:
      - If emptyMessages is set, an empty array is returned
      - If emptyMessages is not set, we return:
-            - 10 messages for page 1
-            - 10 messages for page 2
+            - 'first' messages for page 1
+            - 'first' messages for page 2
             - 3 messages for page 3
             - 0 messages for page > 3
      */
@@ -37,7 +37,7 @@ class ApolloClient {
             print("Receiving response from BE for after: \(query.after)")
             let totalCount = self.maxPages * query.first + 3
 
-            if self.errorInFirstPage {
+            if query.after == -1 && self.errorInFirstPage {
                 resultHandler?(.failure(GraphQLError("Backend or network error")))
                 return
             }
